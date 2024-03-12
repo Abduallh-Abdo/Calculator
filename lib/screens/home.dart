@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Home extends StatelessWidget {
-  Home({super.key});
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class Home extends StatelessWidget {
         children: [
           SizedBox(
             width: double.infinity,
-            height: 100,
+            height: 200,
             child: BlocBuilder<CalculatorCubit, CalculatorState>(
               builder: (context, state) {
                 return Text(
@@ -45,21 +45,6 @@ class Home extends StatelessWidget {
                   ),
                 );
               },
-            ),
-          ),
-          const Divider(
-            color: Colors.white,
-          ),
-          SizedBox(
-            width: double.infinity,
-            height: 75,
-            child: Text(
-              calculatorCubit.result,
-              textAlign: TextAlign.right,
-              style: const TextStyle(
-                fontSize: 30,
-                color: Colors.white38,
-              ),
             ),
           ),
           Expanded(

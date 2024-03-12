@@ -4,13 +4,13 @@ import 'package:calculator/cubits/calculator_cubit/calculator_states.dart';
 
 class CalculatorCubit extends Cubit<CalculatorState> {
   String userInput = '';
-  String result = '0'; 
+  String result = '0';
   CalculatorCubit() : super(CalculatorInitialState());
 
   void handleButtonPressed(String buttonText) {
     if (buttonText == 'C') {
       userInput = '';
-      result = '0'; 
+      result = '0';
     } else if (buttonText == '⌦') {
       if (userInput.isNotEmpty) {
         userInput = userInput.substring(0, userInput.length - 1);
@@ -20,17 +20,27 @@ class CalculatorCubit extends Cubit<CalculatorState> {
       userInput += buttonText;
     } else if (buttonText == '=') {
       if (!_isOperator(userInput[userInput.length - 1])) {
-        userInput = userInput.replaceAll('×', '*');
-        userInput = userInput.replaceAll('÷', '/');
+        userInput = userInput.replaceAll('×', '*').replaceAll('÷', '/');
         Parser p = Parser();
         Expression ex = p.parse(userInput);
         double res = ex.evaluate(EvaluationType.REAL, ContextModel());
+        if (res == res.toInt().toDouble()) {
+          userInput = res.toInt().toString();
+        } else {
+          userInput = res.toStringAsFixed(2);
+        }
         result = res.toString();
       }
     } else {
-      userInput += buttonText;
+      if (userInput == '0') {
+        userInput = buttonText;
+      } else {
+        userInput += buttonText;
+      }
     }
-    emit(UpdatedState(userInput, result));
+    emit(UpdatedState(
+      userInput,
+    ));
   }
 
   bool _isOperator(String char) {

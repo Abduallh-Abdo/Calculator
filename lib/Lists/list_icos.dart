@@ -11,7 +11,7 @@ List<listIcon> iconList = [
   listIcon(text: '7'),
   listIcon(text: '8'),
   listIcon(text: '9'),
-  listIcon(text: 'x'),
+  listIcon(text: '×'),
   listIcon(text: '4'),
   listIcon(text: '5'),
   listIcon(text: '6'),
