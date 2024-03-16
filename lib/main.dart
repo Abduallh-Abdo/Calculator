@@ -3,6 +3,7 @@ import 'package:calculator/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+
 void main() {
   runApp(const Calcualta());
 }
@@ -14,7 +15,7 @@ class Calcualta extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => CalculatorCubit(),
-      child: MaterialApp(
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Home(),
       ),

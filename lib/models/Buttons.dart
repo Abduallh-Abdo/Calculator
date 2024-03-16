@@ -32,7 +32,7 @@ class CustomButtons extends StatelessWidget {
         text == '%' ||
         text == '⌦' ||
         text == '÷' ||
-        text == 'x' ||
+        text == '×' ||
         text == '-' ||
         text == '+') {
       return const Color(0xff333337);

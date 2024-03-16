@@ -22,6 +22,6 @@ List<listIcon> iconList = [
   listIcon(text: '+'),
   listIcon(text: '00'),
   listIcon(text: '0'),
-  listIcon(text: ','),
+  listIcon(text: '.'),
   listIcon(text: '='),
 ];
